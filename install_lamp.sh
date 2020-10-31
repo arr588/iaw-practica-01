@@ -89,4 +89,4 @@ rm /var/www/html/index.html
 mv $DIR_GIT/src/* /var/www/html
 
 # Insertamos la base de datos en MySQL
-mysql --user=root --password=root < $DIR_GIT/db/database.sql
+mysql --user=root --password=DB_ROOT_PASSWD < $DIR_GIT/db/database.sql
