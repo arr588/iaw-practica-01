@@ -129,3 +129,23 @@ Antes de instalar los paquetes necesarios para la pila LAMP vamos a ejecutar una
 		`cp /home/ubuntu/000-default.conf /etc/apache2/sites-available/`
 
 		`systemctl restart apache2`
+
+### Instalación de la aplicación web propuesta
+
+- Descargamos los archivos del repositorio:
+
+	`git clone https://github.com/josejuansanchez/iaw-practica-lamp.git $DIR_GIT`
+
+	La variable $DIR_GIT será el directorio donde queramos guardar el repositorio antes de mover los archivos.
+
+- Borramos el index.html que hay en la ruta /var/www/html para no tener conflicto con el de la aplicación web:
+
+	`rm /var/www/html/index.html`
+
+- Movemos el contenido de la carpeta src de la aplicación web al directorio /var/www/html
+
+	`mv $DIR_GIT/src/* /var/www/html`
+
+- Insertamos la base de datos en nuestro servidor:
+
+	`mysql --user=root --password=$DB_ROOT_PASSWD < $DIR_GIT/db/database.sql`
